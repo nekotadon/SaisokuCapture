@@ -14,7 +14,7 @@
 
 ## 動作確認環境
 
-Microsoft Windows11 x64
+Microsoft Windows11
 
 ## 更新履歴
 
