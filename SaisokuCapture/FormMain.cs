@@ -407,7 +407,14 @@ namespace SaisokuCapture
 
                             if (MakeDirectory())
                             {
-                                string filename = imagefolder + name + DateTime.Now.ToString("yyyyMMdd_HHmmss_fff");
+                                //ファイル名に使えない文字を_に置き換え
+                                string modifiedName = name;
+                                foreach (char c in Path.GetInvalidFileNameChars())
+                                {
+                                    modifiedName = modifiedName.Replace(c, '_');
+                                }
+
+                                string filename = imagefolder + modifiedName + DateTime.Now.ToString("yyyyMMdd_HHmmss_fff");
                                 if (checkBox_save_bmp.Checked)
                                 {
                                     bmp.Save(filename + ".bmp", System.Drawing.Imaging.ImageFormat.Bmp);
